@@ -222,8 +222,8 @@ export class AgentSessionsControl extends Disposable {
 
 		const provider = await this.chatSessionsService.activateChatSessionItemProvider(session.providerType);
 		const contextOverlay = getSessionItemContextOverlay(session, provider, this.chatService, this.editorGroupsService);
-		contextOverlay.push([ChatContextKeys.isCombinedSessionViewer.key, true]);
-		const menu = this.menuService.createMenu(MenuId.ChatSessionsMenu, this.contextKeyService.createOverlay(contextOverlay));
+		contextOverlay.push([ChatContextKeys.isCombinedAgentSessionsViewer.key, true]);
+		const menu = this.menuService.createMenu(MenuId.AgentSessionsContext, this.contextKeyService.createOverlay(contextOverlay));
 
 		const marshalledSession: IMarshalledChatSessionContext = { session, $mid: MarshalledId.ChatSessionContext };
 		this.contextMenuService.showContextMenu({
